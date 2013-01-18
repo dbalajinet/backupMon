@@ -11,20 +11,85 @@ namespace BackupMonitor
 {
     public partial class frmMain : Form
     {
+        private List<Server> servers;
+
         public frmMain()
         {
             InitializeComponent();
+            servers = new List<Server>();
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
         {
-            new frmServer().Show();
+            new frmServer(this).Show();
         }
 
         private void btnMailList_Click(object sender, EventArgs e)
         {
             new frmMail().Show();
         }
+
+        public void RefreshServerList()
+        {
+            lbServers.Items.Clear();
+
+            if (servers.Count < 1)
+                return;
+
+            foreach (Server s in servers)
+            {
+                lbServers.Items.Add(s.Name);
+            }
+        }
+
+        public void AddServer(Server s)
+        {
+            servers.Add(s);
+        }
+
+        private void btnAddServer_MouseEnter(object sender, EventArgs e)
+        {
+           SetHelp("New Server", "Configure a new server to monitor");
+        }
+
+        private void ClearHelp()
+        {
+            SetHelp("","");
+        }
+
+        private void SetHelp(string item, string tip)
+        {
+            lblHelpItemName.Text = item;
+            lblHelpString.Text = tip;
+        }
+
+        private void btnAddServer_MouseLeave(object sender, EventArgs e)
+        {
+            ClearHelp();
+        }
+
+        private void btnEditServer_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("Edit Server", "Edit the configuration for a server");
+        }
+
+        private void btnEditServer_MouseLeave(object sender, EventArgs e)
+        {
+            ClearHelp();
+        }
+
+        private void btnRemServer_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("Remove Server", "Stop monitoring a server");
+        }
+
+        private void btnRemServer_MouseLeave(object sender, EventArgs e)
+        {
+            ClearHelp();
+        }
+        #region Help Tooltips
+
+        #endregion
 
     }
 }

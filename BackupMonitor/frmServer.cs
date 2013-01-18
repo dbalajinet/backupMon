@@ -11,10 +11,17 @@ namespace BackupMonitor
 {
     public partial class frmServer : Form
     {
-        public frmServer()
+        #region Properties, internal fields, and constructors
+        public frmMain Parent { get; set; }
+        private Server server;
+
+        public frmServer(frmMain parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
+
+    #endregion
 
         private void frmServer_Load(object sender, EventArgs e)
         {
@@ -24,6 +31,11 @@ namespace BackupMonitor
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
             new frmFolder().Show();
+        }
+
+        private void btnSaveServer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

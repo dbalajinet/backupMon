@@ -54,15 +54,16 @@
             // 
             // lblHelpItemName
             // 
-            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelpItemName.Name = "lblHelpItemName";
-            this.lblHelpItemName.Size = new System.Drawing.Size(33, 17);
+            this.lblHelpItemName.Size = new System.Drawing.Size(27, 17);
             this.lblHelpItemName.Text = "item";
             // 
             // lblHelpString
             // 
+            this.lblHelpString.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelpString.Name = "lblHelpString";
-            this.lblHelpString.Size = new System.Drawing.Size(72, 17);
+            this.lblHelpString.Size = new System.Drawing.Size(55, 17);
             this.lblHelpString.Text = "context help";
             // 
             // lbServers
@@ -82,7 +83,7 @@
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(235, 112);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Servers";
             // 
@@ -91,36 +92,42 @@
             this.btnRemServer.Location = new System.Drawing.Point(148, 79);
             this.btnRemServer.Name = "btnRemServer";
             this.btnRemServer.Size = new System.Drawing.Size(75, 23);
-            this.btnRemServer.TabIndex = 4;
-            this.btnRemServer.Text = "Remove";
+            this.btnRemServer.TabIndex = 3;
+            this.btnRemServer.Text = "&Remove";
             this.btnRemServer.UseVisualStyleBackColor = true;
+            this.btnRemServer.MouseEnter += new System.EventHandler(this.btnRemServer_MouseEnter);
+            this.btnRemServer.MouseLeave += new System.EventHandler(this.btnRemServer_MouseLeave);
             // 
             // btnEditServer
             // 
             this.btnEditServer.Location = new System.Drawing.Point(148, 49);
             this.btnEditServer.Name = "btnEditServer";
             this.btnEditServer.Size = new System.Drawing.Size(75, 23);
-            this.btnEditServer.TabIndex = 3;
-            this.btnEditServer.Text = "Edit";
+            this.btnEditServer.TabIndex = 2;
+            this.btnEditServer.Text = "&Edit";
             this.btnEditServer.UseVisualStyleBackColor = true;
+            this.btnEditServer.MouseEnter += new System.EventHandler(this.btnEditServer_MouseEnter);
+            this.btnEditServer.MouseLeave += new System.EventHandler(this.btnEditServer_MouseLeave);
             // 
             // btnAddServer
             // 
             this.btnAddServer.Location = new System.Drawing.Point(148, 19);
             this.btnAddServer.Name = "btnAddServer";
             this.btnAddServer.Size = new System.Drawing.Size(75, 23);
-            this.btnAddServer.TabIndex = 2;
-            this.btnAddServer.Text = "New";
+            this.btnAddServer.TabIndex = 0;
+            this.btnAddServer.Text = "&New";
             this.btnAddServer.UseVisualStyleBackColor = true;
             this.btnAddServer.Click += new System.EventHandler(this.btnAddServer_Click);
+            this.btnAddServer.MouseEnter += new System.EventHandler(this.btnAddServer_MouseEnter);
+            this.btnAddServer.MouseLeave += new System.EventHandler(this.btnAddServer_MouseLeave);
             // 
             // btnMailList
             // 
             this.btnMailList.Location = new System.Drawing.Point(71, 131);
             this.btnMailList.Name = "btnMailList";
             this.btnMailList.Size = new System.Drawing.Size(120, 23);
-            this.btnMailList.TabIndex = 3;
-            this.btnMailList.Text = "Edit Mailing List";
+            this.btnMailList.TabIndex = 1;
+            this.btnMailList.Text = "Edit &Mailing List";
             this.btnMailList.UseVisualStyleBackColor = true;
             this.btnMailList.Click += new System.EventHandler(this.btnMailList_Click);
             // 

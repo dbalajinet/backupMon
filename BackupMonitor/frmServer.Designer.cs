@@ -78,15 +78,15 @@
             this.label1.Location = new System.Drawing.Point(34, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Server Name:";
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Server &Name:";
             // 
             // txtServerName
             // 
             this.txtServerName.Location = new System.Drawing.Point(107, 24);
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Size = new System.Drawing.Size(166, 20);
-            this.txtServerName.TabIndex = 3;
+            this.txtServerName.TabIndex = 1;
             // 
             // label2
             // 
@@ -94,15 +94,15 @@
             this.label2.Location = new System.Drawing.Point(9, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Space Threshhold:";
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Space &Threshhold:";
             // 
             // txtThreshhold
             // 
             this.txtThreshhold.Location = new System.Drawing.Point(107, 48);
             this.txtThreshhold.Name = "txtThreshhold";
             this.txtThreshhold.Size = new System.Drawing.Size(100, 20);
-            this.txtThreshhold.TabIndex = 5;
+            this.txtThreshhold.TabIndex = 3;
             // 
             // cbThreshholdUnits
             // 
@@ -116,7 +116,7 @@
             this.cbThreshholdUnits.Location = new System.Drawing.Point(213, 47);
             this.cbThreshholdUnits.Name = "cbThreshholdUnits";
             this.cbThreshholdUnits.Size = new System.Drawing.Size(60, 21);
-            this.cbThreshholdUnits.TabIndex = 6;
+            this.cbThreshholdUnits.TabIndex = 4;
             // 
             // lbFolders
             // 
@@ -124,15 +124,15 @@
             this.lbFolders.Location = new System.Drawing.Point(6, 17);
             this.lbFolders.Name = "lbFolders";
             this.lbFolders.Size = new System.Drawing.Size(200, 82);
-            this.lbFolders.TabIndex = 7;
+            this.lbFolders.TabIndex = 1;
             // 
             // btnAddFolder
             // 
             this.btnAddFolder.Location = new System.Drawing.Point(212, 17);
             this.btnAddFolder.Name = "btnAddFolder";
             this.btnAddFolder.Size = new System.Drawing.Size(61, 23);
-            this.btnAddFolder.TabIndex = 8;
-            this.btnAddFolder.Text = "Add";
+            this.btnAddFolder.TabIndex = 0;
+            this.btnAddFolder.Text = "&Add";
             this.btnAddFolder.UseVisualStyleBackColor = true;
             this.btnAddFolder.Click += new System.EventHandler(this.btnAddFolder_Click);
             // 
@@ -141,8 +141,8 @@
             this.btnEditFolder.Location = new System.Drawing.Point(212, 46);
             this.btnEditFolder.Name = "btnEditFolder";
             this.btnEditFolder.Size = new System.Drawing.Size(61, 23);
-            this.btnEditFolder.TabIndex = 9;
-            this.btnEditFolder.Text = "Edit";
+            this.btnEditFolder.TabIndex = 2;
+            this.btnEditFolder.Text = "&Edit";
             this.btnEditFolder.UseVisualStyleBackColor = true;
             // 
             // btnRemFolder
@@ -150,18 +150,20 @@
             this.btnRemFolder.Location = new System.Drawing.Point(212, 75);
             this.btnRemFolder.Name = "btnRemFolder";
             this.btnRemFolder.Size = new System.Drawing.Size(61, 23);
-            this.btnRemFolder.TabIndex = 10;
-            this.btnRemFolder.Text = "Remove";
+            this.btnRemFolder.TabIndex = 3;
+            this.btnRemFolder.Text = "&Remove";
             this.btnRemFolder.UseVisualStyleBackColor = true;
             // 
             // btnSaveServer
             // 
+            this.btnSaveServer.Enabled = false;
             this.btnSaveServer.Location = new System.Drawing.Point(119, 214);
             this.btnSaveServer.Name = "btnSaveServer";
             this.btnSaveServer.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveServer.TabIndex = 11;
-            this.btnSaveServer.Text = "Save";
+            this.btnSaveServer.TabIndex = 2;
+            this.btnSaveServer.Text = "&Save";
             this.btnSaveServer.UseVisualStyleBackColor = true;
+            this.btnSaveServer.Click += new System.EventHandler(this.btnSaveServer_Click);
             // 
             // groupBox1
             // 
@@ -172,7 +174,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 99);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(290, 109);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Folders to Monitor";
             // 
@@ -186,7 +188,7 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(290, 81);
-            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server Information";
             // 
