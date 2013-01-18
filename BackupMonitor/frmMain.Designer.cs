@@ -54,16 +54,17 @@
             // 
             // lblHelpItemName
             // 
-            this.lblHelpItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.lblHelpItemName.Name = "lblHelpItemName";
-            this.lblHelpItemName.Size = new System.Drawing.Size(27, 17);
+            this.lblHelpItemName.Size = new System.Drawing.Size(30, 17);
             this.lblHelpItemName.Text = "item";
             // 
             // lblHelpString
             // 
-            this.lblHelpString.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpString.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.lblHelpString.Margin = new System.Windows.Forms.Padding(0, 5, 0, 2);
             this.lblHelpString.Name = "lblHelpString";
-            this.lblHelpString.Size = new System.Drawing.Size(55, 17);
+            this.lblHelpString.Size = new System.Drawing.Size(60, 15);
             this.lblHelpString.Text = "context help";
             // 
             // lbServers
@@ -130,6 +131,8 @@
             this.btnMailList.Text = "Edit &Mailing List";
             this.btnMailList.UseVisualStyleBackColor = true;
             this.btnMailList.Click += new System.EventHandler(this.btnMailList_Click);
+            this.btnMailList.MouseEnter += new System.EventHandler(this.btnMailList_MouseEnter);
+            this.btnMailList.MouseLeave += new System.EventHandler(this.btnMailList_MouseLeave);
             // 
             // frmMain
             // 

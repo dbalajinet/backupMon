@@ -47,15 +47,7 @@ namespace BackupMonitor
             servers.Add(s);
         }
 
-        private void btnAddServer_MouseEnter(object sender, EventArgs e)
-        {
-           SetHelp("New Server", "Configure a new server to monitor");
-        }
-
-        private void ClearHelp()
-        {
-            SetHelp("","");
-        }
+        #region Help Tooltips
 
         private void SetHelp(string item, string tip)
         {
@@ -63,6 +55,17 @@ namespace BackupMonitor
             lblHelpString.Text = tip;
         }
 
+        private void ClearHelp()
+        {
+            SetHelp("","");
+        }
+
+        private void btnAddServer_MouseEnter(object sender, EventArgs e)
+        {
+           SetHelp("New Server", "Configure a new server to monitor");
+        }
+
+     
         private void btnAddServer_MouseLeave(object sender, EventArgs e)
         {
             ClearHelp();
@@ -87,8 +90,16 @@ namespace BackupMonitor
         {
             ClearHelp();
         }
-        #region Help Tooltips
 
+        private void btnMailList_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("Mail","Configure which email addresses receive reports");
+        }
+
+        private void btnMailList_MouseLeave(object sender, EventArgs e)
+        {
+            ClearHelp();
+        }
         #endregion
 
     }
