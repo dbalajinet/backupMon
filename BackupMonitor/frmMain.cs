@@ -16,5 +16,15 @@ namespace BackupMonitor
             InitializeComponent();
         }
 
+        private void btnAddServer_Click(object sender, EventArgs e)
+        {
+            new frmServer().Show();
+        }
+
+        private void btnMailList_Click(object sender, EventArgs e)
+        {
+            new frmMail().Show();
+        }
+
     }
 }

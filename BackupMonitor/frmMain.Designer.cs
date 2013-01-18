@@ -36,14 +36,9 @@
             this.btnRemServer = new System.Windows.Forms.Button();
             this.btnEditServer = new System.Windows.Forms.Button();
             this.btnAddServer = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnRemEmail = new System.Windows.Forms.Button();
-            this.btnEditEmail = new System.Windows.Forms.Button();
-            this.btnNewEmail = new System.Windows.Forms.Button();
-            this.lbEmails = new System.Windows.Forms.ListBox();
+            this.btnMailList = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -51,7 +46,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblHelpItemName,
             this.lblHelpString});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 250);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 159);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(260, 22);
             this.statusStrip1.TabIndex = 0;
@@ -117,61 +112,24 @@
             this.btnAddServer.TabIndex = 2;
             this.btnAddServer.Text = "New";
             this.btnAddServer.UseVisualStyleBackColor = true;
+            this.btnAddServer.Click += new System.EventHandler(this.btnAddServer_Click);
             // 
-            // groupBox2
+            // btnMailList
             // 
-            this.groupBox2.Controls.Add(this.btnRemEmail);
-            this.groupBox2.Controls.Add(this.btnEditEmail);
-            this.groupBox2.Controls.Add(this.btnNewEmail);
-            this.groupBox2.Controls.Add(this.lbEmails);
-            this.groupBox2.Location = new System.Drawing.Point(13, 131);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(235, 112);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "E-Mails";
-            // 
-            // btnRemEmail
-            // 
-            this.btnRemEmail.Location = new System.Drawing.Point(148, 79);
-            this.btnRemEmail.Name = "btnRemEmail";
-            this.btnRemEmail.Size = new System.Drawing.Size(75, 23);
-            this.btnRemEmail.TabIndex = 4;
-            this.btnRemEmail.Text = "Remove";
-            this.btnRemEmail.UseVisualStyleBackColor = true;
-            // 
-            // btnEditEmail
-            // 
-            this.btnEditEmail.Location = new System.Drawing.Point(148, 49);
-            this.btnEditEmail.Name = "btnEditEmail";
-            this.btnEditEmail.Size = new System.Drawing.Size(75, 23);
-            this.btnEditEmail.TabIndex = 3;
-            this.btnEditEmail.Text = "Edit";
-            this.btnEditEmail.UseVisualStyleBackColor = true;
-            // 
-            // btnNewEmail
-            // 
-            this.btnNewEmail.Location = new System.Drawing.Point(148, 19);
-            this.btnNewEmail.Name = "btnNewEmail";
-            this.btnNewEmail.Size = new System.Drawing.Size(75, 23);
-            this.btnNewEmail.TabIndex = 2;
-            this.btnNewEmail.Text = "New";
-            this.btnNewEmail.UseVisualStyleBackColor = true;
-            // 
-            // lbEmails
-            // 
-            this.lbEmails.FormattingEnabled = true;
-            this.lbEmails.Location = new System.Drawing.Point(9, 19);
-            this.lbEmails.Name = "lbEmails";
-            this.lbEmails.Size = new System.Drawing.Size(132, 82);
-            this.lbEmails.TabIndex = 1;
+            this.btnMailList.Location = new System.Drawing.Point(71, 131);
+            this.btnMailList.Name = "btnMailList";
+            this.btnMailList.Size = new System.Drawing.Size(120, 23);
+            this.btnMailList.TabIndex = 3;
+            this.btnMailList.Text = "Edit Mailing List";
+            this.btnMailList.UseVisualStyleBackColor = true;
+            this.btnMailList.Click += new System.EventHandler(this.btnMailList_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 272);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(260, 181);
+            this.Controls.Add(this.btnMailList);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.MaximizeBox = false;
@@ -180,7 +138,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,11 +153,7 @@
         private System.Windows.Forms.Button btnRemServer;
         private System.Windows.Forms.Button btnEditServer;
         private System.Windows.Forms.Button btnAddServer;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnRemEmail;
-        private System.Windows.Forms.Button btnEditEmail;
-        private System.Windows.Forms.Button btnNewEmail;
-        private System.Windows.Forms.ListBox lbEmails;
+        private System.Windows.Forms.Button btnMailList;
     }
 }
 

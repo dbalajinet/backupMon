@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace BackupMonitor
 {
-    public partial class frmServer : Form
+    public partial class frmFolder : Form
     {
-        public frmServer()
+        public frmFolder()
         {
             InitializeComponent();
-        }
-
-        private void frmServer_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddFolder_Click(object sender, EventArgs e)
-        {
-            new frmFolder().Show();
         }
     }
 }

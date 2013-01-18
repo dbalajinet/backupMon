@@ -53,7 +53,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblHelpItemName,
             this.lblHelpString});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 362);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 243);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(313, 22);
             this.statusStrip1.TabIndex = 1;
@@ -134,6 +134,7 @@
             this.btnAddFolder.TabIndex = 8;
             this.btnAddFolder.Text = "Add";
             this.btnAddFolder.UseVisualStyleBackColor = true;
+            this.btnAddFolder.Click += new System.EventHandler(this.btnAddFolder_Click);
             // 
             // btnEditFolder
             // 
@@ -173,7 +174,7 @@
             this.groupBox1.Size = new System.Drawing.Size(290, 109);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Folders";
+            this.groupBox1.Text = "Folders to Monitor";
             // 
             // groupBox2
             // 
@@ -193,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 384);
+            this.ClientSize = new System.Drawing.Size(313, 265);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveServer);
