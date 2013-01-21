@@ -28,40 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblHelpItemName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblHelpString = new System.Windows.Forms.ToolStripStatusLabel();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.chkBoxSubdirectories = new System.Windows.Forms.CheckBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtFolderPath = new System.Windows.Forms.TextBox();
             this.btnSaveFolder = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblHelpItemName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHelpString = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblHelpItemName,
-            this.lblHelpString});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 69);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(405, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblHelpItemName
-            // 
-            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelpItemName.Name = "lblHelpItemName";
-            this.lblHelpItemName.Size = new System.Drawing.Size(33, 17);
-            this.lblHelpItemName.Text = "item";
-            // 
-            // lblHelpString
-            // 
-            this.lblHelpString.Name = "lblHelpString";
-            this.lblHelpString.Size = new System.Drawing.Size(72, 17);
-            this.lblHelpString.Text = "context help";
             // 
             // chkBoxSubdirectories
             // 
@@ -81,6 +57,7 @@
             this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtFolderPath
             // 
@@ -88,26 +65,55 @@
             this.txtFolderPath.Name = "txtFolderPath";
             this.txtFolderPath.Size = new System.Drawing.Size(315, 20);
             this.txtFolderPath.TabIndex = 4;
+            this.txtFolderPath.TextChanged += new System.EventHandler(this.txtFolderPath_TextChanged);
             // 
             // btnSaveFolder
             // 
-            this.btnSaveFolder.Location = new System.Drawing.Point(172, 34);
+            this.btnSaveFolder.Enabled = false;
+            this.btnSaveFolder.Location = new System.Drawing.Point(172, 43);
             this.btnSaveFolder.Name = "btnSaveFolder";
             this.btnSaveFolder.Size = new System.Drawing.Size(59, 23);
             this.btnSaveFolder.TabIndex = 5;
             this.btnSaveFolder.Text = "Save";
             this.btnSaveFolder.UseVisualStyleBackColor = true;
+            this.btnSaveFolder.Click += new System.EventHandler(this.btnSaveFolder_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblHelpItemName,
+            this.lblHelpString});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 69);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(405, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblHelpItemName
+            // 
+            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblHelpItemName.Name = "lblHelpItemName";
+            this.lblHelpItemName.Size = new System.Drawing.Size(30, 17);
+            this.lblHelpItemName.Text = "item";
+            // 
+            // lblHelpString
+            // 
+            this.lblHelpString.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.lblHelpString.Margin = new System.Windows.Forms.Padding(0, 5, 0, 2);
+            this.lblHelpString.Name = "lblHelpString";
+            this.lblHelpString.Size = new System.Drawing.Size(60, 15);
+            this.lblHelpString.Text = "context help";
             // 
             // frmFolder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 91);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSaveFolder);
             this.Controls.Add(this.txtFolderPath);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.chkBoxSubdirectories);
-            this.Controls.Add(this.statusStrip1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFolder";
@@ -121,13 +127,13 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblHelpItemName;
-        private System.Windows.Forms.ToolStripStatusLabel lblHelpString;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.CheckBox chkBoxSubdirectories;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtFolderPath;
         private System.Windows.Forms.Button btnSaveFolder;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblHelpItemName;
+        private System.Windows.Forms.ToolStripStatusLabel lblHelpString;
     }
 }

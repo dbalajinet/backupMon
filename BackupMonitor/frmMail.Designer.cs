@@ -62,20 +62,22 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 115);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(339, 22);
-            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblHelpItemName
             // 
-            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpItemName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.lblHelpItemName.Name = "lblHelpItemName";
-            this.lblHelpItemName.Size = new System.Drawing.Size(33, 17);
+            this.lblHelpItemName.Size = new System.Drawing.Size(30, 17);
             this.lblHelpItemName.Text = "item";
             // 
             // lblHelpString
             // 
+            this.lblHelpString.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.lblHelpString.Margin = new System.Windows.Forms.Padding(0, 5, 0, 2);
             this.lblHelpString.Name = "lblHelpString";
-            this.lblHelpString.Size = new System.Drawing.Size(72, 17);
+            this.lblHelpString.Size = new System.Drawing.Size(60, 15);
             this.lblHelpString.Text = "context help";
             // 
             // frmMail

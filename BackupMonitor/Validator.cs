@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BackupMonitor
 {
-    public static class Validate
+    public static class Validator
     {
 
         public static bool IsDouble(string text)

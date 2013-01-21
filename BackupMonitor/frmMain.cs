@@ -17,6 +17,7 @@ namespace BackupMonitor
         {
             InitializeComponent();
             servers = new List<Server>();
+            ClearHelp();
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)

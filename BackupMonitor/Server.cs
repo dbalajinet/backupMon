@@ -14,8 +14,8 @@ namespace BackupMonitor
     {
         #region Fields & Constructors
         public string Name { get; set; }
-        private double space;
-        private SpaceType spaceType;
+        public double Space { get; set; }
+        public SpaceType spaceType { get; set; }
 
         private List<Folder> folders;
 
@@ -24,10 +24,15 @@ namespace BackupMonitor
             get { return folders; }
         }
 
+        public Server()
+        {
+            folders = new List<Folder>();
+        }
+
         public Server(string name, double space, SpaceType type)
         {
             Name = name;
-            this.space = space;
+            this.Space = space;
             this.spaceType = type;
 
             folders = new List<Folder>();
