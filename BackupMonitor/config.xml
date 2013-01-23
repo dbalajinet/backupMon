@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <Mail default="serverbackupreports@samaritan.org">
+    jwarnes@gmail.com,joe123@domain.net
+  </Mail>
+  <Servers>
+    <Server name="Server 1" spaceValue="5" spaceType="0">
+      <Folder path="C:\" recurse="0" />
+      <Folder path="C:\recurse" recurse="1" />
+      <Folder path="\\server1\backups" recurse="0" />
+    </Server>
+    <Server name="Server 2" spaceValue="15" spaceType="1">
+      <Folder path="F:\" recurse="0" />
+    </Server>
+  </Servers>
+</Config>

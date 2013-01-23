@@ -151,6 +151,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Backup Monitor";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

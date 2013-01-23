@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace BackupMonitor
 {
@@ -17,6 +18,9 @@ namespace BackupMonitor
             get { return servers; }
         }
 
+        private string mailString;
+        private string defaultMail;
+
         public frmMain()
         {
             InitializeComponent();
@@ -25,6 +29,12 @@ namespace BackupMonitor
         }
 
         #region UI Events
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            LoadConfiguration();
+            SaveConfiguration(@"Test.xml");
+        }
+
         private void btnMailList_Click(object sender, EventArgs e)
         {
             new frmMail().ShowDialog();
@@ -124,7 +134,93 @@ namespace BackupMonitor
 
         #endregion
 
+        public void LoadConfiguration(string path = @"config.xml")
+        {
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;
+            settings.IgnoreWhitespace = true;
+
+            XmlReader r = XmlReader.Create(path, settings);
+
+            r.ReadToDescendant("Mail");
+            defaultMail = r["default"];
+            mailString = r.ReadString();
+
+            r.ReadToFollowing("Servers");
+            r.ReadToDescendant("Server");
+            do
+            {
+                Server server = new Server();
+                server.Name = r["name"];
+                server.Space = Convert.ToDouble(r["spaceValue"]);
+                server.spaceType = (SpaceType) Convert.ToInt16(r["spaceType"]);
+
+                //folders loop
+                
+                r.ReadToDescendant("Folder");
+                do
+                {
+                    Folder folder = new Folder(r["path"], Convert.ToBoolean(Convert.ToInt16(r["recurse"])));
+                    server.AddFolder(folder);
+                } while (r.ReadToNextSibling("Folder"));
+                 
+
+               AddServer(server);
+            } while (r.ReadToNextSibling("Server"));
+
+            r.Close();
 
 
+        }
+
+        public void SaveConfiguration(string path = @"config.xml")
+        {
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.IndentChars = ("   ");
+
+            XmlWriter w = XmlWriter.Create(path, settings);
+            w.WriteStartDocument();
+            w.WriteStartElement("Config");
+
+            //write mail information
+            w.WriteStartElement("Mail");
+            {
+                w.WriteAttributeString("default", defaultMail);
+                w.WriteString(mailString);
+            }
+            w.WriteEndElement();
+
+            //server information
+            w.WriteStartElement("Servers");
+            foreach (Server s in servers)
+            {
+                w.WriteStartElement("Server");
+                {
+                    w.WriteAttributeString("name", s.Name);
+                    w.WriteAttributeString("spaceValue", s.Space.ToString());
+                    int spaceTypeNumber = (int) s.spaceType;
+                    w.WriteAttributeString("spaceType", spaceTypeNumber.ToString());
+                    
+                    //folder information
+                    foreach (Folder f in s.Folders)
+                    {
+                        w.WriteStartElement("Folder");
+                        {
+                            w.WriteAttributeString("path", f.Path);
+                            w.WriteAttributeString("recurse", Convert.ToInt16(f.RecurseSubdirectories).ToString());
+                        }
+                        w.WriteEndElement();
+                    }
+                }
+                w.WriteEndElement();
+
+            }
+            w.WriteEndElement();
+
+            w.WriteEndElement();
+            w.Close();
+
+        }
     }
 }

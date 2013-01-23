@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMailList = new System.Windows.Forms.TextBox();
             this.btnSaveMail = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblHelpItemName = new System.Windows.Forms.ToolStripStatusLabel();
@@ -36,14 +36,16 @@
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMailList
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(317, 67);
-            this.textBox1.TabIndex = 0;
+            this.txtMailList.Location = new System.Drawing.Point(12, 12);
+            this.txtMailList.Multiline = true;
+            this.txtMailList.Name = "txtMailList";
+            this.txtMailList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMailList.Size = new System.Drawing.Size(317, 67);
+            this.txtMailList.TabIndex = 0;
+            this.txtMailList.MouseEnter += new System.EventHandler(this.txtMailList_MouseEnter);
+            this.txtMailList.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnSaveMail
             // 
@@ -53,6 +55,8 @@
             this.btnSaveMail.TabIndex = 1;
             this.btnSaveMail.Text = "Save Mailing List";
             this.btnSaveMail.UseVisualStyleBackColor = true;
+            this.btnSaveMail.MouseEnter += new System.EventHandler(this.btnSaveMail_MouseEnter);
+            this.btnSaveMail.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // statusStrip1
             // 
@@ -88,7 +92,7 @@
             this.ClientSize = new System.Drawing.Size(339, 137);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSaveMail);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMailList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMail";
             this.Text = "Edit Mailing List";
@@ -101,7 +105,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMailList;
         private System.Windows.Forms.Button btnSaveMail;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblHelpItemName;
