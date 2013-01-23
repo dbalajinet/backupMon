@@ -55,6 +55,7 @@
             this.btnSaveMail.TabIndex = 1;
             this.btnSaveMail.Text = "Save Mailing List";
             this.btnSaveMail.UseVisualStyleBackColor = true;
+            this.btnSaveMail.Click += new System.EventHandler(this.btnSaveMail_Click);
             this.btnSaveMail.MouseEnter += new System.EventHandler(this.btnSaveMail_MouseEnter);
             this.btnSaveMail.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 

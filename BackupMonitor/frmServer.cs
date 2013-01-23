@@ -70,6 +70,7 @@ namespace BackupMonitor
             else
                 ParentFrm.EditServer(editServerIndex, CreateServer());
 
+            ParentFrm.SaveConfiguration();
             Close();
         }
 

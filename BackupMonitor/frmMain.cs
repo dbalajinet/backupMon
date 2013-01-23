@@ -13,12 +13,13 @@ namespace BackupMonitor
     public partial class frmMain : Form
     {
         private List<Server> servers;
+
         public List<Server> Servers
         {
             get { return servers; }
         }
 
-        private string mailString;
+        public string MailString { get; set; }
         private string defaultMail;
 
         public frmMain()
@@ -37,7 +38,7 @@ namespace BackupMonitor
 
         private void btnMailList_Click(object sender, EventArgs e)
         {
-            new frmMail().ShowDialog();
+            new frmMail(this).ShowDialog();
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -53,7 +54,10 @@ namespace BackupMonitor
         private void btnRemServer_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Permanently delete this server configuration?", "Remove Server", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
                 RemoveServer(lbServers.SelectedIndex);
+                SaveConfiguration();
+            }
         }
         #endregion
 
@@ -144,7 +148,7 @@ namespace BackupMonitor
 
             r.ReadToDescendant("Mail");
             defaultMail = r["default"];
-            mailString = r.ReadString();
+            MailString = r.ReadString().Replace(" ", string.Empty);
 
             r.ReadToFollowing("Servers");
             r.ReadToDescendant("Server");
@@ -187,7 +191,7 @@ namespace BackupMonitor
             w.WriteStartElement("Mail");
             {
                 w.WriteAttributeString("default", defaultMail);
-                w.WriteString(mailString);
+                w.WriteString(MailString);
             }
             w.WriteEndElement();
 

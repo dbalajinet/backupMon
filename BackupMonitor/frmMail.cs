@@ -11,10 +11,14 @@ namespace BackupMonitor
 {
     public partial class frmMail : Form
     {
-        public frmMail()
+        private frmMain parentFrm;
+        public frmMail(frmMain parent)
         {
             InitializeComponent();
             ClearHelp();
+            parentFrm = parent;
+
+            txtMailList.Text = parentFrm.MailString;
         }
 
         #region Help Tooltips
@@ -45,6 +49,12 @@ namespace BackupMonitor
         }
 
         #endregion
+
+        private void btnSaveMail_Click(object sender, EventArgs e)
+        {
+            parentFrm.MailString = txtMailList.Text;
+            parentFrm.SaveConfiguration();
+        }
 
     }
 }
