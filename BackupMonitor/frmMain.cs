@@ -33,7 +33,6 @@ namespace BackupMonitor
         private void frmMain_Load(object sender, EventArgs e)
         {
             LoadConfiguration();
-            SaveConfiguration(@"Test.xml");
         }
 
         private void btnMailList_Click(object sender, EventArgs e)
@@ -140,6 +139,7 @@ namespace BackupMonitor
 
         public void LoadConfiguration(string path = @"config.xml")
         {
+            //TODO: file not found exception handling
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.IgnoreComments = true;
             settings.IgnoreWhitespace = true;
