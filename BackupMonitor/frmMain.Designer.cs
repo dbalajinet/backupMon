@@ -74,6 +74,7 @@
             this.lbServers.Name = "lbServers";
             this.lbServers.Size = new System.Drawing.Size(132, 82);
             this.lbServers.TabIndex = 1;
+            this.lbServers.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // groupBox1
             // 
@@ -90,25 +91,29 @@
             // 
             // btnRemServer
             // 
+            this.btnRemServer.Enabled = false;
             this.btnRemServer.Location = new System.Drawing.Point(148, 79);
             this.btnRemServer.Name = "btnRemServer";
             this.btnRemServer.Size = new System.Drawing.Size(75, 23);
             this.btnRemServer.TabIndex = 3;
             this.btnRemServer.Text = "&Remove";
             this.btnRemServer.UseVisualStyleBackColor = true;
+            this.btnRemServer.Click += new System.EventHandler(this.btnRemServer_Click);
             this.btnRemServer.MouseEnter += new System.EventHandler(this.btnRemServer_MouseEnter);
-            this.btnRemServer.MouseLeave += new System.EventHandler(this.btnRemServer_MouseLeave);
+            this.btnRemServer.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnEditServer
             // 
+            this.btnEditServer.Enabled = false;
             this.btnEditServer.Location = new System.Drawing.Point(148, 49);
             this.btnEditServer.Name = "btnEditServer";
             this.btnEditServer.Size = new System.Drawing.Size(75, 23);
             this.btnEditServer.TabIndex = 2;
             this.btnEditServer.Text = "&Edit";
             this.btnEditServer.UseVisualStyleBackColor = true;
+            this.btnEditServer.Click += new System.EventHandler(this.btnEditServer_Click);
             this.btnEditServer.MouseEnter += new System.EventHandler(this.btnEditServer_MouseEnter);
-            this.btnEditServer.MouseLeave += new System.EventHandler(this.btnEditServer_MouseLeave);
+            this.btnEditServer.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnAddServer
             // 
@@ -120,7 +125,7 @@
             this.btnAddServer.UseVisualStyleBackColor = true;
             this.btnAddServer.Click += new System.EventHandler(this.btnAddServer_Click);
             this.btnAddServer.MouseEnter += new System.EventHandler(this.btnAddServer_MouseEnter);
-            this.btnAddServer.MouseLeave += new System.EventHandler(this.btnAddServer_MouseLeave);
+            this.btnAddServer.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnMailList
             // 
@@ -132,7 +137,7 @@
             this.btnMailList.UseVisualStyleBackColor = true;
             this.btnMailList.Click += new System.EventHandler(this.btnMailList_Click);
             this.btnMailList.MouseEnter += new System.EventHandler(this.btnMailList_MouseEnter);
-            this.btnMailList.MouseLeave += new System.EventHandler(this.btnMailList_MouseLeave);
+            this.btnMailList.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // frmMain
             // 
@@ -142,6 +147,7 @@
             this.Controls.Add(this.btnMailList);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Backup Monitor";

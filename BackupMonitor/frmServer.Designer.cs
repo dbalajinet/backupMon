@@ -64,6 +64,8 @@
             this.txtServerName.Size = new System.Drawing.Size(166, 20);
             this.txtServerName.TabIndex = 1;
             this.txtServerName.TextChanged += new System.EventHandler(this.txtServerName_TextChanged);
+            this.txtServerName.MouseEnter += new System.EventHandler(this.txtServerName_MouseEnter);
+            this.txtServerName.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // label2
             // 
@@ -81,6 +83,8 @@
             this.txtThreshhold.Size = new System.Drawing.Size(100, 20);
             this.txtThreshhold.TabIndex = 3;
             this.txtThreshhold.TextChanged += new System.EventHandler(this.txtThreshhold_TextChanged);
+            this.txtThreshhold.MouseEnter += new System.EventHandler(this.txtThreshhold_MouseEnter);
+            this.txtThreshhold.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // cbThreshholdUnits
             // 
@@ -95,6 +99,8 @@
             this.cbThreshholdUnits.Name = "cbThreshholdUnits";
             this.cbThreshholdUnits.Size = new System.Drawing.Size(60, 21);
             this.cbThreshholdUnits.TabIndex = 4;
+            this.cbThreshholdUnits.MouseEnter += new System.EventHandler(this.cbThreshholdUnits_MouseEnter);
+            this.cbThreshholdUnits.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // lbFolders
             // 
@@ -103,6 +109,8 @@
             this.lbFolders.Name = "lbFolders";
             this.lbFolders.Size = new System.Drawing.Size(200, 82);
             this.lbFolders.TabIndex = 1;
+            this.lbFolders.MouseEnter += new System.EventHandler(this.lbFolders_MouseEnter);
+            this.lbFolders.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnAddFolder
             // 
@@ -113,18 +121,25 @@
             this.btnAddFolder.Text = "&Add";
             this.btnAddFolder.UseVisualStyleBackColor = true;
             this.btnAddFolder.Click += new System.EventHandler(this.btnAddFolder_Click);
+            this.btnAddFolder.MouseEnter += new System.EventHandler(this.btnAddFolder_MouseEnter);
+            this.btnAddFolder.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnEditFolder
             // 
+            this.btnEditFolder.Enabled = false;
             this.btnEditFolder.Location = new System.Drawing.Point(212, 46);
             this.btnEditFolder.Name = "btnEditFolder";
             this.btnEditFolder.Size = new System.Drawing.Size(61, 23);
             this.btnEditFolder.TabIndex = 2;
             this.btnEditFolder.Text = "&Edit";
             this.btnEditFolder.UseVisualStyleBackColor = true;
+            this.btnEditFolder.Click += new System.EventHandler(this.btnEditFolder_Click);
+            this.btnEditFolder.MouseEnter += new System.EventHandler(this.btnEditFolder_MouseEnter);
+            this.btnEditFolder.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnRemFolder
             // 
+            this.btnRemFolder.Enabled = false;
             this.btnRemFolder.Location = new System.Drawing.Point(212, 75);
             this.btnRemFolder.Name = "btnRemFolder";
             this.btnRemFolder.Size = new System.Drawing.Size(61, 23);
@@ -132,6 +147,8 @@
             this.btnRemFolder.Text = "&Remove";
             this.btnRemFolder.UseVisualStyleBackColor = true;
             this.btnRemFolder.Click += new System.EventHandler(this.btnRemFolder_Click);
+            this.btnRemFolder.MouseEnter += new System.EventHandler(this.btnRemFolder_MouseEnter);
+            this.btnRemFolder.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnSaveServer
             // 
@@ -143,6 +160,8 @@
             this.btnSaveServer.Text = "&Save";
             this.btnSaveServer.UseVisualStyleBackColor = true;
             this.btnSaveServer.Click += new System.EventHandler(this.btnSaveServer_Click);
+            this.btnSaveServer.MouseEnter += new System.EventHandler(this.btnSaveServer_MouseEnter);
+            this.btnSaveServer.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // groupBox1
             // 

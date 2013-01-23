@@ -45,9 +45,11 @@
             this.chkBoxSubdirectories.Location = new System.Drawing.Point(12, 38);
             this.chkBoxSubdirectories.Name = "chkBoxSubdirectories";
             this.chkBoxSubdirectories.Size = new System.Drawing.Size(135, 17);
-            this.chkBoxSubdirectories.TabIndex = 2;
-            this.chkBoxSubdirectories.Text = "Include subdirectories?";
+            this.chkBoxSubdirectories.TabIndex = 1;
+            this.chkBoxSubdirectories.Text = "&Include subdirectories?";
             this.chkBoxSubdirectories.UseVisualStyleBackColor = true;
+            this.chkBoxSubdirectories.MouseEnter += new System.EventHandler(this.chkBoxSubdirectories_MouseEnter);
+            this.chkBoxSubdirectories.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnBrowse
             // 
@@ -55,17 +57,21 @@
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(59, 23);
             this.btnBrowse.TabIndex = 3;
-            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Text = "&Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnBrowse.MouseEnter += new System.EventHandler(this.btnBrowse_MouseEnter);
+            this.btnBrowse.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // txtFolderPath
             // 
             this.txtFolderPath.Location = new System.Drawing.Point(13, 12);
             this.txtFolderPath.Name = "txtFolderPath";
             this.txtFolderPath.Size = new System.Drawing.Size(315, 20);
-            this.txtFolderPath.TabIndex = 4;
+            this.txtFolderPath.TabIndex = 0;
             this.txtFolderPath.TextChanged += new System.EventHandler(this.txtFolderPath_TextChanged);
+            this.txtFolderPath.MouseEnter += new System.EventHandler(this.txtFolderPath_MouseEnter);
+            this.txtFolderPath.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // btnSaveFolder
             // 
@@ -73,10 +79,12 @@
             this.btnSaveFolder.Location = new System.Drawing.Point(172, 43);
             this.btnSaveFolder.Name = "btnSaveFolder";
             this.btnSaveFolder.Size = new System.Drawing.Size(59, 23);
-            this.btnSaveFolder.TabIndex = 5;
-            this.btnSaveFolder.Text = "Save";
+            this.btnSaveFolder.TabIndex = 2;
+            this.btnSaveFolder.Text = "&Save";
             this.btnSaveFolder.UseVisualStyleBackColor = true;
             this.btnSaveFolder.Click += new System.EventHandler(this.btnSaveFolder_Click);
+            this.btnSaveFolder.MouseEnter += new System.EventHandler(this.btnSaveFolder_MouseEnter);
+            this.btnSaveFolder.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
             // statusStrip1
             // 
@@ -106,6 +114,7 @@
             // 
             // frmFolder
             // 
+            this.AcceptButton = this.btnSaveFolder;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 91);
@@ -114,10 +123,12 @@
             this.Controls.Add(this.txtFolderPath);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.chkBoxSubdirectories);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFolder";
             this.Text = "Add Folder to Monitor";
+            this.Load += new System.EventHandler(this.frmFolder_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

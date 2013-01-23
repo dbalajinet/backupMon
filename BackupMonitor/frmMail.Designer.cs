@@ -82,12 +82,14 @@
             // 
             // frmMail
             // 
+            this.AcceptButton = this.btnSaveMail;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 137);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSaveMail);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMail";
             this.Text = "Edit Mailing List";
             this.statusStrip1.ResumeLayout(false);
