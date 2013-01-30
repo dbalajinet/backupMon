@@ -148,7 +148,7 @@ namespace BackupMonitor
 
             r.ReadToDescendant("Mail");
             defaultMail = r["default"];
-            MailString = r.ReadString().Replace(" ", string.Empty);
+            MailString = r["recipients"].Replace(",", ", ");
 
             r.ReadToFollowing("Servers");
             r.ReadToDescendant("Server");
@@ -191,7 +191,7 @@ namespace BackupMonitor
             w.WriteStartElement("Mail");
             {
                 w.WriteAttributeString("default", defaultMail);
-                w.WriteString(MailString);
+                w.WriteAttributeString("recipients", MailString);
             }
             w.WriteEndElement();
 

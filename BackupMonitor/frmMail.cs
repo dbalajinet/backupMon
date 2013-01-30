@@ -52,8 +52,9 @@ namespace BackupMonitor
 
         private void btnSaveMail_Click(object sender, EventArgs e)
         {
-            parentFrm.MailString = txtMailList.Text;
+            parentFrm.MailString = txtMailList.Text.Replace(" ", string.Empty);
             parentFrm.SaveConfiguration();
+            Close();
         }
 
     }
