@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -139,10 +140,9 @@ namespace BackupMonitor
 
         public void LoadConfiguration(string path = @"config.xml")
         {
-            //TODO: file not found exception handling
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;
-            settings.IgnoreWhitespace = true;
+            if(!File.Exists(path)) return;
+
+            var settings = new XmlReaderSettings {IgnoreComments = true, IgnoreWhitespace = true};
 
             XmlReader r = XmlReader.Create(path, settings);
 
