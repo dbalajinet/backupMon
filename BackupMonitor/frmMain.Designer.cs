@@ -37,6 +37,7 @@
             this.btnEditServer = new System.Windows.Forms.Button();
             this.btnAddServer = new System.Windows.Forms.Button();
             this.btnMailList = new System.Windows.Forms.Button();
+            this.btnScheduleTasks = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +130,7 @@
             // 
             // btnMailList
             // 
-            this.btnMailList.Location = new System.Drawing.Point(71, 131);
+            this.btnMailList.Location = new System.Drawing.Point(13, 131);
             this.btnMailList.Name = "btnMailList";
             this.btnMailList.Size = new System.Drawing.Size(120, 23);
             this.btnMailList.TabIndex = 1;
@@ -139,11 +140,26 @@
             this.btnMailList.MouseEnter += new System.EventHandler(this.btnMailList_MouseEnter);
             this.btnMailList.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
+            // btnScheduleTasks
+            // 
+            this.btnScheduleTasks.Enabled = false;
+            this.btnScheduleTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnScheduleTasks.Location = new System.Drawing.Point(139, 131);
+            this.btnScheduleTasks.Name = "btnScheduleTasks";
+            this.btnScheduleTasks.Size = new System.Drawing.Size(109, 23);
+            this.btnScheduleTasks.TabIndex = 2;
+            this.btnScheduleTasks.Text = "Schedule &Task";
+            this.btnScheduleTasks.UseVisualStyleBackColor = true;
+            this.btnScheduleTasks.Click += new System.EventHandler(this.btnScheduleTasks_Click);
+            this.btnScheduleTasks.MouseEnter += new System.EventHandler(this.btnScheduleTasks_MouseEnter);
+            this.btnScheduleTasks.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 181);
+            this.Controls.Add(this.btnScheduleTasks);
             this.Controls.Add(this.btnMailList);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
@@ -171,6 +187,7 @@
         private System.Windows.Forms.Button btnEditServer;
         private System.Windows.Forms.Button btnAddServer;
         private System.Windows.Forms.Button btnMailList;
+        private System.Windows.Forms.Button btnScheduleTasks;
     }
 }
 

@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Microsoft.Win32.TaskScheduler;
 
 namespace BackupMonitor
 {
     public partial class frmMain : Form
     {
+        #region Fields
         private List<Server> servers;
 
         public List<Server> Servers
@@ -21,7 +23,8 @@ namespace BackupMonitor
         }
 
         public string MailString { get; set; }
-        private string defaultMail;
+        private string defaultMail = "jwarnes@samaritan.org";
+        #endregion
 
         public frmMain()
         {
@@ -59,6 +62,24 @@ namespace BackupMonitor
                 SaveConfiguration();
             }
         }
+
+        private void btnScheduleTasks_Click(object sender, EventArgs e)
+        {
+            using (var taskService = new TaskService())
+            {
+                if (taskService.GetTask("SP_Field_Backup_Monitor") == null)
+                {
+                    CreateTask(taskService);
+                }
+                else
+                {
+                    taskService.RootFolder.DeleteTask("SP_Field_Backup_Monitor");
+                    CreateTask(taskService);
+                }
+            }
+
+        }
+
         #endregion
 
         #region Server List Methods
@@ -76,6 +97,7 @@ namespace BackupMonitor
 
             btnEditServer.Enabled = (servers.Count > 0);
             btnRemServer.Enabled = (servers.Count > 0);
+            btnScheduleTasks.Enabled = (servers.Count > 0);
         }
 
         public void AddServer(Server s)
@@ -136,7 +158,14 @@ namespace BackupMonitor
             SetHelp("Mail","Configure which email addresses receive reports");
         }
 
+        private void btnScheduleTasks_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("Schedule Task", "Set this monitor to run daily");
+        }
+
         #endregion
+
+        #region Persistant Data
 
         public void LoadConfiguration(string path = @"config.xml")
         {
@@ -147,24 +176,26 @@ namespace BackupMonitor
             XmlReader r = XmlReader.Create(path, settings);
 
             r.ReadToDescendant("Mail");
-            defaultMail = r["default"];
+            defaultMail = (r["default"] != "") ? r["default"] : "jwarnes@samaritan.org";
             MailString = r["recipients"].Replace(",", ", ");
 
             r.ReadToFollowing("Servers");
             r.ReadToDescendant("Server");
             do
             {
-                Server server = new Server();
-                server.Name = r["name"];
-                server.Space = Convert.ToDouble(r["spaceValue"]);
-                server.spaceType = (SpaceType) Convert.ToInt16(r["spaceType"]);
+                var server = new Server
+                    {
+                        Name = r["name"],
+                        Space = Convert.ToDouble(r["spaceValue"]),
+                        spaceType = (SpaceType) Convert.ToInt16(r["spaceType"])
+                    };
 
                 //folders loop
                 
                 r.ReadToDescendant("Folder");
                 do
                 {
-                    Folder folder = new Folder(r["path"], Convert.ToBoolean(Convert.ToInt16(r["recurse"])));
+                    var folder = new Folder(r["path"], Convert.ToBoolean(Convert.ToInt16(r["recurse"])));
                     server.AddFolder(folder);
                 } while (r.ReadToNextSibling("Folder"));
                  
@@ -179,7 +210,7 @@ namespace BackupMonitor
 
         public void SaveConfiguration(string path = @"config.xml")
         {
-            XmlWriterSettings settings = new XmlWriterSettings();
+            var settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.IndentChars = ("   ");
 
@@ -226,5 +257,29 @@ namespace BackupMonitor
             w.Close();
 
         }
+        #endregion
+
+        public void CreateTask(TaskService service)
+        {
+            var path = Application.StartupPath;
+
+            try
+            {
+                var task = service.AddTask("SP_Field_Backup_Monitor", new DailyTrigger(),
+                                           new ExecAction(path + "\\FieldMonitor.exe",
+                                                          "-user jwarnes -password \"correct horse battery staple\"",
+                                                          path), "SYSTEM");
+                MessageBox.Show(
+                    "The daily task has been scheduled.\nIf you move any of the Field Monitor executables, you will need to click this button again.",
+                    "Success!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show(
+                    "You need administrator privileges to schedule this task! \nTry running the program as an administrator.",
+                    "Insufficient Access Rights", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
     }
 }
