@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupMonitor", "BackupMonitor\BackupMonitor.csproj", "{83B26219-99FA-4546-88CB-98B874B58567}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{076F730A-2BDB-4811-8075-12EB085DF359}"
+	ProjectSection(SolutionItems) = preProject
+		..\backupCLI\BackupMonitorCLI\bin\Release\SPFieldMonitor.exe = ..\backupCLI\BackupMonitorCLI\bin\Release\SPFieldMonitor.exe
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
