@@ -268,7 +268,8 @@ namespace BackupMonitor
 
             try
             {
-                var task = service.AddTask("SP_Field_Monitor", new DailyTrigger(),
+                var task = service.AddTask("SP_Field_Monitor",
+                                           new DailyTrigger() { StartBoundary = DateTime.Parse("10:00:00 AM")},
                                            new ExecAction(path + "\\SPFieldMonitor.exe",
                                                           "-user jwarnes -password \"correct horse battery staple\"",
                                                           path), "SYSTEM");
