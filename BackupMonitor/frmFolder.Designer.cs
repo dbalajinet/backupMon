@@ -123,7 +123,7 @@
             this.Controls.Add(this.txtFolderPath);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.chkBoxSubdirectories);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFolder";

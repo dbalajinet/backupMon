@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -65,19 +67,19 @@ namespace BackupMonitor
 
         private void btnScheduleTasks_Click(object sender, EventArgs e)
         {
+
             using (var taskService = new TaskService())
             {
-                if (taskService.GetTask("SP_Field_Backup_Monitor") == null)
+                if (taskService.GetTask("SP_Field_Monitor") == null)
                 {
                     CreateTask(taskService);
                 }
                 else
                 {
-                    taskService.RootFolder.DeleteTask("SP_Field_Backup_Monitor");
+                    taskService.RootFolder.DeleteTask("SP_Field_Monitor");
                     CreateTask(taskService);
                 }
             }
-
         }
 
         #endregion
@@ -102,7 +104,8 @@ namespace BackupMonitor
 
         public void AddServer(Server s)
         {
-            servers.Add(s);
+            if(s.IsValid())
+                servers.Add(s);
             RefreshServerList();
         }
 
@@ -265,18 +268,18 @@ namespace BackupMonitor
 
             try
             {
-                var task = service.AddTask("SP_Field_Backup_Monitor", new DailyTrigger(),
-                                           new ExecAction(path + "\\FieldMonitor.exe",
+                var task = service.AddTask("SP_Field_Monitor", new DailyTrigger(),
+                                           new ExecAction(path + "\\SPFieldMonitor.exe",
                                                           "-user jwarnes -password \"correct horse battery staple\"",
                                                           path), "SYSTEM");
                 MessageBox.Show(
-                    "The daily task has been scheduled.\nIf you move any of the Field Monitor executables, you will need to click this button again.",
+                    "The daily task has been scheduled.\nIf you move any of the Field Monitor executables, you will need to click this button again to reschedule the task.",
                     "Success!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (UnauthorizedAccessException)
             {
                 MessageBox.Show(
-                    "You need administrator privileges to schedule this task! \nTry running the program as an administrator.",
+                    "You need administrator privileges to schedule this task. Try running the program as an administrator.",
                     "Insufficient Access Rights", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

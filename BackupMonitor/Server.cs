@@ -66,5 +66,9 @@ namespace BackupMonitor
         }
         #endregion
 
+        public bool IsValid()
+        {
+            return Name != null && folders.Count > 0;
+        }
     }
 }
