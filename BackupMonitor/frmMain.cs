@@ -25,7 +25,7 @@ namespace BackupMonitor
         }
 
         public string MailString { get; set; }
-        private string defaultMail = "jwarnes@samaritan.org";
+        private string defaultMail = "fieldalerts@spnetinfo.org";
         #endregion
 
         public frmMain()
