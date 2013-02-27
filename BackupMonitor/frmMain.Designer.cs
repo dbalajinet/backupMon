@@ -39,6 +39,8 @@
             this.btnAddServer = new System.Windows.Forms.Button();
             this.btnMailList = new System.Windows.Forms.Button();
             this.btnScheduleTasks = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnFileTypes = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +50,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblHelpItemName,
             this.lblHelpString});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 159);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 185);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(260, 22);
             this.statusStrip1.TabIndex = 0;
@@ -155,12 +157,39 @@
             this.btnScheduleTasks.MouseEnter += new System.EventHandler(this.btnScheduleTasks_MouseEnter);
             this.btnScheduleTasks.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnExit.Location = new System.Drawing.Point(139, 158);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(109, 23);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            // 
+            // btnFileTypes
+            // 
+            this.btnFileTypes.Location = new System.Drawing.Point(13, 158);
+            this.btnFileTypes.Name = "btnFileTypes";
+            this.btnFileTypes.Size = new System.Drawing.Size(120, 23);
+            this.btnFileTypes.TabIndex = 1;
+            this.btnFileTypes.Text = "&File Types";
+            this.btnFileTypes.UseVisualStyleBackColor = true;
+            this.btnFileTypes.Click += new System.EventHandler(this.btnFileTypes_Click);
+            this.btnFileTypes.MouseEnter += new System.EventHandler(this.btnFileTypes_MouseEnter);
+            this.btnFileTypes.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 181);
+            this.ClientSize = new System.Drawing.Size(260, 207);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnScheduleTasks);
+            this.Controls.Add(this.btnFileTypes);
             this.Controls.Add(this.btnMailList);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
@@ -190,6 +219,8 @@
         private System.Windows.Forms.Button btnAddServer;
         private System.Windows.Forms.Button btnMailList;
         private System.Windows.Forms.Button btnScheduleTasks;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnFileTypes;
     }
 }
 

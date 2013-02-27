@@ -26,6 +26,7 @@ namespace BackupMonitor
 
         public string MailString { get; set; }
         private string defaultMail = "fieldalerts@spnetinfo.org";
+        private string fileTypes = "*.tib,*.bak";
         #endregion
 
         public frmMain()
@@ -77,9 +78,15 @@ namespace BackupMonitor
                 else
                 {
                     taskService.RootFolder.DeleteTask("SP_Field_Monitor");
+                    taskService.RootFolder.DeleteTask("SP_Field_Monitor_Check");
                     CreateTask(taskService);
                 }
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         #endregion
@@ -165,6 +172,17 @@ namespace BackupMonitor
         {
             SetHelp("Schedule Task", "Set this monitor to run daily");
         }
+
+        private void btnFileTypes_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("File Types", "Pick which file extensions to monitor");
+        }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            SetHelp("Exit", "Saves your configuration and exits");
+        }
+
 
         #endregion
 
@@ -269,10 +287,21 @@ namespace BackupMonitor
             try
             {
                 var task = service.AddTask("SP_Field_Monitor",
-                                           new DailyTrigger() { StartBoundary = DateTime.Parse("10:00:00 AM")},
+                                           new DailyTrigger() { StartBoundary = DateTime.Parse("10:00:00 AM") },
                                            new ExecAction(path + "\\SPFieldMonitor.exe",
-                                                          "-user jwarnes -password \"correct horse battery staple\"",
+                                                          "-user fieldalerts@spnetinfo.org -password \"!thisisatestitisonlyatest!\"",
                                                           path), "SYSTEM");
+
+
+                var trigger = new DailyTrigger() { StartBoundary = DateTime.Parse("11:00:00 AM") };
+                trigger.Repetition.Duration = TimeSpan.FromHours(22);
+                trigger.Repetition.Interval = TimeSpan.FromHours(1);
+
+                var checkTask = service.AddTask("SP_Field_Monitor_Check", trigger,
+                                           new ExecAction(path + "\\SPFieldMonitor.exe",
+                                                          "-user fieldalerts@spnetinfo.org -password \"!thisisatestitisonlyatest!\" -check",
+                                                          path), "SYSTEM");            
+
                 MessageBox.Show(
                     "The daily task has been scheduled.\nIf you move any of the Field Monitor executables, you will need to click this button again to reschedule the task.",
                     "Success!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -284,6 +313,10 @@ namespace BackupMonitor
                     "Insufficient Access Rights", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    
+
+        private void btnFileTypes_Click(object sender, EventArgs e)
+        {
+            //new frmFileTypes(this).ShowDialog();
+        }
     }
 }
