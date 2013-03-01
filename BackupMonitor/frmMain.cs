@@ -26,12 +26,13 @@ namespace BackupMonitor
 
         public string MailString { get; set; }
         private string defaultMail = "fieldalerts@spnetinfo.org";
-        private string fileTypes = "*.tib,*.bak";
+        public string FileTypes { get; set; }
         #endregion
 
         public frmMain()
         {
             InitializeComponent();
+            FileTypes = "*.tib, *.bak";
             servers = new List<Server>();
             ClearHelp();
         }
@@ -78,7 +79,10 @@ namespace BackupMonitor
                 else
                 {
                     taskService.RootFolder.DeleteTask("SP_Field_Monitor");
-                    taskService.RootFolder.DeleteTask("SP_Field_Monitor_Check");
+
+                    if (taskService.GetTask("SP_Field_Monitor_Check") != null) 
+                            taskService.RootFolder.DeleteTask("SP_Field_Monitor_Check");
+
                     CreateTask(taskService);
                 }
             }
@@ -89,6 +93,10 @@ namespace BackupMonitor
             this.Close();
         }
 
+        private void btnFileTypes_Click(object sender, EventArgs e)
+        {
+            new frmTypes(this).ShowDialog();
+        }
         #endregion
 
         #region Server List Methods
@@ -197,8 +205,12 @@ namespace BackupMonitor
             XmlReader r = XmlReader.Create(path, settings);
 
             r.ReadToDescendant("Mail");
-            defaultMail = (r["default"] != "") ? r["default"] : "jwarnes@samaritan.org";
+            defaultMail = (r["default"] != "") ? r["default"] : "fieldalerts@spnetinfo.org";
             MailString = r["recipients"].Replace(",", ", ");
+
+            r.ReadToFollowing("FileTypes");
+            FileTypes = (r["patterns"] != "") ? r["patterns"] : "*.tib, *.bak";
+
 
             r.ReadToFollowing("Servers");
             r.ReadToDescendant("Server");
@@ -244,6 +256,12 @@ namespace BackupMonitor
             {
                 w.WriteAttributeString("default", defaultMail);
                 w.WriteAttributeString("recipients", MailString);
+            }
+            w.WriteEndElement();
+
+            w.WriteStartElement("FileTypes");
+            {
+                w.WriteAttributeString("patterns", FileTypes);
             }
             w.WriteEndElement();
 
@@ -314,9 +332,5 @@ namespace BackupMonitor
             }
         }
 
-        private void btnFileTypes_Click(object sender, EventArgs e)
-        {
-            //new frmFileTypes(this).ShowDialog();
-        }
     }
 }

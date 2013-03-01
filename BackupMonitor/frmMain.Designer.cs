@@ -159,6 +159,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnExit.Location = new System.Drawing.Point(139, 158);
             this.btnExit.Name = "btnExit";
@@ -186,6 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(260, 207);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnScheduleTasks);
